@@ -1,0 +1,28 @@
+<div class="container">
+<div ng-controller="YearsController as year">
+    <div class="row">
+    <div class="col-md-10"><h1>Publications by year </h1> </div>
+        <br>
+    <div class="col-md-10">Only the most recent paper details are listed. Please select another year from
+the drop down list.<select ng-model="selected" ng-options="acas.value for acas in acases" ng-change="setYear(selected);"></select><br> </div> 
+    </div>
+    <!--<p> Selected:  {{selected.value}}</p>-->
+</div>
+<div class="table-responsive"><table class="table table-striped">
+    <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Published At</th>
+        <th>Year</th>
+        <th>Download</th>
+    </tr>
+    <tr ng-repeat="contents in $ctrl.contents">
+    <td>{{contents.pubTitle}}</td>
+    <td>{{contents.pubAuthor}}</td>
+    <td>{{contents.pubAt}}</td>
+        <td>{{contents.pubYear}}</td>
+        <td><a href="http://teamcore.usc.edu/papers/{{contents.pubYear}}/{{contents.origFileName}}" target="_blank">Download</a></td>
+    </tr>
+</table>
+</div>
+</div>
